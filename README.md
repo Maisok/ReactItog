@@ -2,7 +2,7 @@
 
 **Разработчик:** Фамилия Имя Отчество, группа ВЕБ-21-2. 
 
-**Запуск проекта:** C:\Users\21039\Desktop\React\my-app>npm stars
+**Запуск проекта:** C:\Users\21039\Desktop\React\my-app>npm start
 
 
 
