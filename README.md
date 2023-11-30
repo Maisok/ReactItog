@@ -1,3 +1,16 @@
+**Тема:** Проект Чеклист в React. 
+
+**Разработчик:** Фамилия Имя Отчество, группа ВЕБ-21-2. 
+
+**Запуск проекта:** C:\Users\21039\Desktop\React\my-app>npm stars
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

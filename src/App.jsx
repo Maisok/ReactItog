@@ -2,22 +2,26 @@ import React, { useState } from 'react';
 function App (){
   const [items, setItems] = useState([]);
   const [inputValue, setInputValue] = useState('');
+
   const addItem = () => {
     if (inputValue.trim() !== '') {
       setItems([...items, inputValue]);
       setInputValue('');
     }
   };
+
   const deleteItem = (index) => {
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);
   };
+
   const toggleItem = (index) => {
     const updatedItems = [...items];
-    updatedItems[index] = updatedItems[index].startsWith('❤') ? updatedItems[index].substring(1): '❤' + updatedItems[index];
+    updatedItems[index] = updatedItems[index].startsWith('✔') ? updatedItems[index].substring(1): '✔' + updatedItems[index];
     setItems(updatedItems);
   };
+
   const editItem = (index, newValue) => {
     const updatedItems = [...items];
     updatedItems[index] = newValue;
