@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-function App (){
+function App() {
   const [items, setItems] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -16,31 +16,33 @@ function App (){
     setItems(updatedItems);
   };
 
-  const toggleItem = (index) => {
-    const updatedItems = [...items];
-    updatedItems[index] = updatedItems[index].startsWith('✔') ? updatedItems[index].substring(1): '✔' + updatedItems[index];
-    setItems(updatedItems);
-  };
+  // const toggleItem = (index) => {
+  //   const updatedItems = [...items];
+  //   updatedItems[index] = updatedItems[index].startsWith('✔') ? updatedItems[index].substring(1): '✔' + updatedItems[index];
+  //   setItems(updatedItems);
+  // };
 
   const editItem = (index, newValue) => {
-    const updatedItems = [...items];
-    updatedItems[index] = newValue;
-    setItems(updatedItems);
+    setInputValue(items[index]);
+    deleteItem(items[index])
+    // const updatedItems = [...items];
+    // updatedItems[index] = newValue;
+    // setItems(updatedItems);
   };
   return (
     <div>
-      <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+      <textarea type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}></textarea>
       <button onClick={addItem}>Добавить</button>
 
       <ul>
         {items.map((item, index) => (
-          <li key={index}>
-            <input type="checkbox" onChange={() => toggleItem(index)} />
-            <input type="text" value={item} onChange={(e) => editItem(index, e.target.value)}
-            />
-            <button onClick={(e) => deleteItem(index)}>Удалить</button>
-          </li>
-        ))}
+          <div>
+            <li key={index} onClick={(e) => editItem(index)}>{item}</li><button onClick={(e) => deleteItem(index)}>Удалить</button>
+          </div>
+          
+        )
+        )
+        }
       </ul>
     </div>
   );
