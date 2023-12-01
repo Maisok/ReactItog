@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 function App() {
   const [items, setItems] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const[ressearch, changeRessearch]=useState()
 
   const addItem = () => {
     if (inputValue.trim() !== '') {
@@ -29,8 +31,18 @@ function App() {
     // updatedItems[index] = newValue;
     // setItems(updatedItems);
   };
+
+  function search(val){
+    for (let i of items){
+      if(val===i){
+        changeRessearch('ваш результат поиска:'+val)
+      }
+    }
+  }
+
   return (
     <div>
+      <input type="text" onBlur={(e)=>search(e.target.value)}/>
       <textarea type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}></textarea>
       <button onClick={addItem}>Добавить</button>
 
@@ -39,11 +51,14 @@ function App() {
           <div>
             <li key={index} onClick={(e) => editItem(index)}>{item}</li><button onClick={(e) => deleteItem(index)}>Удалить</button>
           </div>
-          
+
         )
         )
         }
       </ul>
+      <p>
+        {ressearch}
+      </p>
     </div>
   );
 };
